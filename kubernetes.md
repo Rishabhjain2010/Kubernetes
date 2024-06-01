@@ -98,74 +98,91 @@ _Kubernetes Architecture consists of many modular and highly scaleable component
 2. Worker Node Components:
 Worker nodes are the machines (virtual or physical) where the containers are deployed and run. Each node has several components to manage containers and communicate with the control plane.
 
-Kubelet:
+ - Kubelet:
 
-An agent that runs on each worker node.
-Ensures that containers are running in a Pod, interacts with the container runtime, and reports back to the control plane.
-Kube-Proxy:
+   - An agent that runs on each worker node.
+   - Ensures that containers are running in a Pod, interacts with the container runtime, and reports back to the control plane.
 
-Maintains network rules on nodes, enabling network communication to and from Pods.
-Implements service load balancing and network policies.
-Container Runtime:
+ - Kube-Proxy:
 
-The software responsible for running containers (e.g., Docker, containerd, CRI-O).
-Manages the container lifecycle and provides necessary resources.
+   - Maintains network rules on nodes, enabling network communication to and from Pods.
+   - Implements service load balancing and network policies.
+
+ - Container Runtime:
+
+   - The software responsible for running containers (e.g., Docker, containerd, CRI-O).
+   - Manages the container lifecycle and provides necessary resources.
 
 3. Cluster-Level Components and Resources:
-Pods:
 
-The smallest and simplest Kubernetes objects.
-A Pod represents a single instance of a running process and can contain one or more containers.
-Services:
+ - Pods:
 
-An abstraction that defines a logical set of Pods and a policy for accessing them.
-Provides stable IP addresses and DNS names for Pods.
-Volumes:
+   - The smallest and simplest Kubernetes objects.
+   - A Pod represents a single instance of a running process and can contain one or more containers.
 
-Directory accessible to containers in a Pod, used for persistent data storage.
-Multiple types, including local storage, network storage, and cloud-based solutions.
-Namespaces:
+ - Services:
 
-Provide a scope for names in the cluster, allowing for resource isolation and avoiding naming collisions.
-Useful for dividing cluster resources among multiple users or teams.
-ConfigMaps and Secrets:
+   - An abstraction that defines a logical set of Pods and a policy for accessing them.
+   - Provides stable IP addresses and DNS names for Pods.
 
-ConfigMaps store non-confidential configuration data.
-Secrets store sensitive information such as passwords, tokens, and SSH keys.
-Both can be injected into Pods without rebuilding container images.
-ReplicaSets:
+ - Volumes:
 
-Ensure a specified number of Pod replicas are running.
-Provide resilience and scalability by maintaining the desired number of pods.
-Deployments:
+   - Directory accessible to containers in a Pod, used for persistent data storage.
+   - Multiple types, including local storage, network storage, and cloud-based solutions.
 
-Manage ReplicaSets and facilitate declarative updates to applications.
-Support rolling updates and rollbacks, making it easy to update applications without downtime.
+ - Namespaces:
+
+   - Provide a scope for names in the cluster, allowing for resource isolation and avoiding naming collisions.
+   - Useful for dividing cluster resources among multiple users or teams.
+
+ - ConfigMaps and Secrets:
+
+   - ConfigMaps store non-confidential configuration data.
+   - Secrets store sensitive information such as passwords, tokens, and SSH keys.
+   - Both can be injected into Pods without rebuilding container images.
+
+ - ReplicaSets:
+
+   - Ensure a specified number of Pod replicas are running.
+   - Provide resilience and scalability by maintaining the desired number of pods.
+
+ - Deployments:
+
+   - Manage ReplicaSets and facilitate declarative updates to applications.
+   - Support rolling updates and rollbacks, making it easy to update applications without downtime.
 
 4. Networking and Extensibility:
-Networking:
 
-Kubernetes manages networking through a flat network model, allowing all Pods to communicate with each other.
-Network plugins (e.g., Calico, Flannel, Weave) implement networking policies and provide network isolation and security.
-Ingress Controllers:
+ - Networking:
 
-Manage external access to services, typically HTTP/HTTPS.
-Provide features like load balancing, SSL termination, and name-based virtual hosting.
-Custom Resource Definitions (CRDs):
+   - Kubernetes manages networking through a flat network model, allowing all Pods to communicate with each other.
+   - Network plugins (e.g., Calico, Flannel, Weave) implement networking policies and provide network isolation and security.
 
-Allow users to define custom resources to extend the Kubernetes API.
-Enable the management of new types of resources specific to user needs without modifying the core Kubernetes code.
-Cluster Workflow:
-User Interaction:
+ - Ingress Controllers:
+ 
+   - Manage external access to services, typically HTTP/HTTPS.
+   - Provide features like load balancing, SSL termination, and name-based virtual hosting.
 
-Users interact with the Kubernetes API server using tools like kubectl to submit deployment configurations and manage resources.
-Scheduling:
+ - Custom Resource Definitions (CRDs):
 
-The scheduler monitors the state of the cluster and assigns Pods to nodes based on resource availability and requirements.
-Pod Execution:
+   - Allow users to define custom resources to extend the Kubernetes API.
+   - Enable the management of new types of resources specific to user needs without modifying the core Kubernetes code.
 
-Kubelet on the worker nodes receives instructions to start Pods, interacting with the container runtime to launch containers.
-Networking and Services:
+5. Cluster Workflow:
+ 
+ - User Interaction:
+
+   - Users interact with the Kubernetes API server using tools like kubectl to submit deployment configurations and manage resources.
+ 
+ - Scheduling:
+
+   - The scheduler monitors the state of the cluster and assigns Pods to nodes based on resource availability and requirements.
+
+ - Pod Execution:
+
+   - Kubelet on the worker nodes receives instructions to start Pods, interacting with the container runtime to launch containers.
+
+ Networking and Services:
 
 Kube-Proxy and network plugins manage networking rules, enabling communication between Pods and external clients.
 Monitoring and Management:
@@ -240,6 +257,24 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
 
 
 ## Getting Started , Installation and Setup
+
+### Prerequisites
+
+1. Basic knowledge of Docker.
+2. A system with a supported OS (Linux, macOS, or Windows).
+3. Kubernetes command-line tool (kubectl) installed.
+
+### Installation 
+
+* _**Installing kubectl**_
+
+'''shell
+
+sudo apt-get update
+
+'''
+
+
 
 
 
