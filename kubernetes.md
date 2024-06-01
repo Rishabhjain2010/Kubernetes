@@ -79,20 +79,20 @@ _Kubernetes Architecture consists of many modular and highly scaleable component
      - The front-end of the Kubernetes control plane.
      - Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
 
-   -etcd:
+   - etcd:
 
-    -A distributed, consistent key-value store.
-    -Stores all cluster data, including configuration data, state information, and metadata.
+     - A distributed, consistent key-value store.
+     - Stores all cluster data, including configuration data, state information, and metadata.
     
-   -Controller Manager (kube-controller-manager):
+   - Controller Manager (kube-controller-manager):
 
-    -Runs various controllers that regulate the state of the cluster.
-    -Includes node controller (notices and responds when nodes go down), replication controller (maintains the desired number of pods), and others.
+     - Runs various controllers that regulate the state of the cluster.
+     - Includes node controller (notices and responds when nodes go down), replication controller (maintains the desired number of pods), and others.
 
-   -Scheduler (kube-scheduler):
+   - Scheduler (kube-scheduler):
 
-    -Assigns work to nodes by watching for newly created pods and selecting the best available node to run them.
-    -Decisions are based on resource requirements, policy constraints, and current workload.
+     - Assigns work to nodes by watching for newly created pods and selecting the best available node to run them.
+     - Decisions are based on resource requirements, policy constraints, and current workload.
 
 
 2. Worker Node Components:
