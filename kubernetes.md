@@ -74,10 +74,10 @@ _Kubernetes Architecture consists of many modular and highly scaleable component
 
   The control plane is responsible for managing the overall state of the cluster, maintaining the desired state of applications, and orchestrating tasks.
 
-   -API Server (kube-apiserver):
+   - API Server (kube-apiserver):
 
-    1. The front-end of the Kubernetes control plane.
-    2. Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
+     - The front-end of the Kubernetes control plane.
+     - Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
 
    -etcd:
 
