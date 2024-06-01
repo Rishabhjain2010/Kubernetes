@@ -76,8 +76,8 @@ _Kubernetes Architecture consists of many modular and highly scaleable component
 
    -API Server (kube-apiserver):
 
-    -The front-end of the Kubernetes control plane.
-    -Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
+    1. The front-end of the Kubernetes control plane.
+    2. Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
 
    -etcd:
 
