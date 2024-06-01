@@ -1,9 +1,9 @@
 #**Documentation on Kubernetes (K8)**
-====
+=
 
 
 ## _Table of Contents_
-===
+
 
 
 1. Introduction to Kubernetes
@@ -15,7 +15,7 @@
 
 
 ## **Introduction to Kubernetes**
-====
+=
 
 -Kubernetes also knows as K8s, K8s, is an open source system for automating deployement , scaling and management of containerized applications. 
 
@@ -28,16 +28,16 @@
 -It is used to automate containerization scalling and management of containerez applications. \
 
 
-#### What is containerization and why do we need it?
+### What is containerization and why do we need it?
 
 _A Container is as virtaul enviorment running on a OS, containing an application with other required resources and tools like its own file system , CPU , memory , process space and more. A container is decoupled from underlying infrastructer and hence it is portable across clounds and OS Distribution._
----
+
 
 In early time, when a application was hosted it was directly hosted to the server and in a situation when more then one application runs on server, there arrives a situaton where all the resources avaialable on server may be utilised by a single application itself leaving no resoruces for other to run. This was the situation in tradidtional deployment era. To solve the underlying problems “Virtualization” was introduced. Virtualization allowed us to run multiple Virtual Machines on a single physical server’s CPU. It allowed better resource management and isolation.
 Since, every individual application needed a seprate version of OS the resoruces were being over utilized as well as wasted. Here comes in olay the containerization and containers. Containers are simillar to VMs , but they do not require indiviual OS and provide a relaxation on isolation theat were introduced by VMs,  therefore containers are considered lightweight and better to run on servers. 
 
 ## **Features of Kubernetes**
-===
+
 
 * *Service Discovery and Load Balancing*: Kubernetes can expose containers using DNS names or their IP addresses. It can distribute network traffic evenly to ensure deployment stability, even under high traffic conditions.
 
@@ -61,7 +61,7 @@ Since, every individual application needed a seprate version of OS the resoruces
 
 
 ## **Kubernetes Components and Architecture**
-===
+
 
 
 <img src="https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg">
@@ -175,7 +175,7 @@ Kubernetes' architecture is designed for robustness, scalability, and extensibil
 
 
 ## Alternative of Kubernetes
-===
+
 
 _**Kubernetes** is a powerful and widely-used container orchestration platform, but there are several alternatives that offer different features and capabilities._
 
@@ -240,7 +240,7 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
 
 
 ## Getting Started , Installation and Setup
-===
+
 
 
 
