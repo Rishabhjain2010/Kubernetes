@@ -39,25 +39,25 @@ Since, every individual application needed a seprate version of OS the resoruces
 ## **Features of Kubernetes**
 ===
 
-+ *Service Discovery and Load Balancing*: Kubernetes can expose containers using DNS names or their IP addresses. It can distribute network traffic evenly to ensure deployment stability, even under high traffic conditions.
+* *Service Discovery and Load Balancing*: Kubernetes can expose containers using DNS names or their IP addresses. It can distribute network traffic evenly to ensure deployment stability, even under high traffic conditions.
 
-+ *Storage Orchestration*: Kubernetes allows automatic mounting of a storage system of your choice, such as local storage or public cloud providers.
+* *Storage Orchestration*: Kubernetes allows automatic mounting of a storage system of your choice, such as local storage or public cloud providers.
 
-+ *Automated Rollouts and Rollbacks*: Kubernetes lets you define the desired state of your deployed containers and adjusts the actual state accordingly at a controlled pace. It can automatically create new containers, remove existing ones, and migrate resources to new containers as needed.
+* *Automated Rollouts and Rollbacks*: Kubernetes lets you define the desired state of your deployed containers and adjusts the actual state accordingly at a controlled pace. It can automatically create new containers, remove existing ones, and migrate resources to new containers as needed.
 
-+ *Automatic Bin Packing*: You provide Kubernetes with a cluster of nodes to run containerized tasks. By specifying the CPU and memory (RAM) requirements for each container, Kubernetes optimizes the placement of containers on your nodes to maximize resource utilization.
+* *Automatic Bin Packing*: You provide Kubernetes with a cluster of nodes to run containerized tasks. By specifying the CPU and memory (RAM) requirements for each container, Kubernetes optimizes the placement of containers on your nodes to maximize resource utilization.
 
-+ *Self-Healing*: Kubernetes automatically restarts failed containers, replaces them, kills unresponsive containers, and ensures they are not advertised to clients until they are ready to serve.
+* *Self-Healing*: Kubernetes automatically restarts failed containers, replaces them, kills unresponsive containers, and ensures they are not advertised to clients until they are ready to serve.
 
-+ *Secret and Configuration Management*: Kubernetes enables secure storage and management of sensitive information like passwords, OAuth tokens, and SSH keys. It allows you to deploy and update secrets and application configurations without rebuilding container images or exposing secrets in stack configurations.
+* *Secret and Configuration Management*: Kubernetes enables secure storage and management of sensitive information like passwords, OAuth tokens, and SSH keys. It allows you to deploy and update secrets and application configurations without rebuilding container images or exposing secrets in stack configurations.
 
-+ *Batch Execution*: Kubernetes can manage batch and CI workloads, ensuring failed containers are replaced as needed.
+* *Batch Execution*: Kubernetes can manage batch and CI workloads, ensuring failed containers are replaced as needed.
 
-+ *Horizontal Scaling*: Easily scale your applications up or down via simple commands, a UI, or automatically based on CPU usage.
+* *Horizontal Scaling*: Easily scale your applications up or down via simple commands, a UI, or automatically based on CPU usage.
 
-+ *IPv4/IPv6 Dual-Stack*: Supports the allocation of both IPv4 and IPv6 addresses to Pods and Services.
+* *IPv4/IPv6 Dual-Stack*: Supports the allocation of both IPv4 and IPv6 addresses to Pods and Services.
 
-+ *Designed for Extensibility*: Kubernetes allows you to add new features to your cluster without altering the upstream source code.
+* *Designed for Extensibility*: Kubernetes allows you to add new features to your cluster without altering the upstream source code.
 
 
 ## **Kubernetes Components and Architecture**
@@ -76,23 +76,23 @@ _Kubernetes Architecture consists of many modular and highly scaleable component
 
    * API Server (kube-apiserver):
 
-    + The front-end of the Kubernetes control plane.
-    + Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
+    * The front-end of the Kubernetes control plane.
+    * Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
 
    * etcd:
 
-    + A distributed, consistent key-value store.
-    + Stores all cluster data, including configuration data, state information, and metadata.
+    * A distributed, consistent key-value store.
+    * Stores all cluster data, including configuration data, state information, and metadata.
     
    * Controller Manager (kube-controller-manager):
 
-    +  Runs various controllers that regulate the state of the cluster.
-    + Includes node controller (notices and responds when nodes go down), replication controller (maintains the desired number of pods), and others.
+    *  Runs various controllers that regulate the state of the cluster.
+    * Includes node controller (notices and responds when nodes go down), replication controller (maintains the desired number of pods), and others.
 
    * Scheduler (kube-scheduler):
 
-    + Assigns work to nodes by watching for newly created pods and selecting the best available node to run them.
-    + Decisions are based on resource requirements, policy constraints, and current workload.
+    * Assigns work to nodes by watching for newly created pods and selecting the best available node to run them.
+    * Decisions are based on resource requirements, policy constraints, and current workload.
 
 
 2. Worker Node Components:
@@ -183,58 +183,58 @@ Here are some of the notable alternatives to Kubernetes
 
 1. Docker Swarm:
 
-+ Overview: Docker Swarm is a native clustering and scheduling tool for Docker containers. It turns a pool of Docker hosts into a single, virtual host.
-+ Strengths: Simple to set up and use, tightly integrated with Docker, provides native clustering capabilities.
-+ Use Cases: Smaller deployments, users already familiar with Docker, projects that require simplicity over extensive features.
+* Overview: Docker Swarm is a native clustering and scheduling tool for Docker containers. It turns a pool of Docker hosts into a single, virtual host.
+* Strengths: Simple to set up and use, tightly integrated with Docker, provides native clustering capabilities.
+* Use Cases: Smaller deployments, users already familiar with Docker, projects that require simplicity over extensive features.
 
 2. Apache Mesos with Marathon:
 
-+ Overview: Apache Mesos is a cluster manager that can manage large-scale clusters and run various distributed systems. Marathon is a container orchestration platform that runs on Mesos.
-+ Strengths: Highly scalable, supports multiple frameworks, strong in big data and analytics workloads.
-+ Use Cases: Large-scale deployments, mixed workloads, environments requiring support for multiple container formats.
+* Overview: Apache Mesos is a cluster manager that can manage large-scale clusters and run various distributed systems. Marathon is a container orchestration platform that runs on Mesos.
+* Strengths: Highly scalable, supports multiple frameworks, strong in big data and analytics workloads.
+* Use Cases: Large-scale deployments, mixed workloads, environments requiring support for multiple container formats.
 
 3. Nomad:
 
-+ Overview: Nomad is a flexible, enterprise-grade cluster manager and scheduler from HashiCorp, designed to handle a variety of workloads.
+* Overview: Nomad is a flexible, enterprise-grade cluster manager and scheduler from HashiCorp, designed to handle a variety of workloads.
 
-+ Strengths: Simplicity, flexibility to run different types of workloads, integrates well with HashiCorp ecosystem (e.g., Consul, Vault).
-+ Use Cases: Diverse workload environments, users looking for simplicity and flexibility, enterprises using other HashiCorp tools.
+* Strengths: Simplicity, flexibility to run different types of workloads, integrates well with HashiCorp ecosystem (e.g., Consul, Vault).
+* Use Cases: Diverse workload environments, users looking for simplicity and flexibility, enterprises using other HashiCorp tools.
 
 4. Rancher:
 
-+ Overview: Rancher is a complete container management platform that simplifies Kubernetes deployment and management.
-+ Strengths: User-friendly, multi-cluster management, extensive GUI, supports Kubernetes and other orchestration engines.
-+ Use Cases: Enterprises seeking an easier Kubernetes management experience, multi-cluster environments.
+* Overview: Rancher is a complete container management platform that simplifies Kubernetes deployment and management.
+* Strengths: User-friendly, multi-cluster management, extensive GUI, supports Kubernetes and other orchestration engines.
+* Use Cases: Enterprises seeking an easier Kubernetes management experience, multi-cluster environments.
 
 5. OpenShift:
 
-+ Overview: OpenShift is an enterprise Kubernetes platform by Red Hat that provides additional features and tools on top of Kubernetes.
-+ Strengths: Enterprise-grade features, strong security and compliance, integrated CI/CD tools, developer-friendly.
-+ Use Cases: Enterprises looking for comprehensive Kubernetes solutions with additional enterprise features and support.
+* Overview: OpenShift is an enterprise Kubernetes platform by Red Hat that provides additional features and tools on top of Kubernetes.
+* Strengths: Enterprise-grade features, strong security and compliance, integrated CI/CD tools, developer-friendly.
+* Use Cases: Enterprises looking for comprehensive Kubernetes solutions with additional enterprise features and support.
 
 6. Tanzu Kubernetes Grid (TKG):
 
-+ Overview: Tanzu Kubernetes Grid is part of VMware’s Tanzu portfolio, offering Kubernetes clusters on VMware infrastructure and public clouds.
-+ Strengths: Integration with VMware products, enterprise-grade support, hybrid and multi-cloud capabilities.
-+ Use Cases: VMware environments, enterprises needing robust Kubernetes management across hybrid clouds.
+* Overview: Tanzu Kubernetes Grid is part of VMware’s Tanzu portfolio, offering Kubernetes clusters on VMware infrastructure and public clouds.
+* Strengths: Integration with VMware products, enterprise-grade support, hybrid and multi-cloud capabilities.
+* Use Cases: VMware environments, enterprises needing robust Kubernetes management across hybrid clouds.
 
 7. ECS (Amazon Elastic Container Service):
 
-+ Overview: ECS is a fully managed container orchestration service by AWS that supports Docker containers.
-+ Strengths: Deep integration with AWS services, easy to use with other AWS tools, no need to manage control plane.
-+ Use Cases: Workloads running in AWS, users wanting a fully managed service, AWS-centric environments.
+* Overview: ECS is a fully managed container orchestration service by AWS that supports Docker containers.
+* Strengths: Deep integration with AWS services, easy to use with other AWS tools, no need to manage control plane.
+* Use Cases: Workloads running in AWS, users wanting a fully managed service, AWS-centric environments.
 
 8. GKE (Google Kubernetes Engine):
 
-+ Overview: GKE is a managed Kubernetes service by Google Cloud Platform (GCP).
-+ Strengths: Fully managed, integrates well with GCP services, offers advanced features like auto-scaling, security, and logging.
-+ Use Cases: Workloads running in GCP, users wanting a fully managed Kubernetes experience with advanced features.
+* Overview: GKE is a managed Kubernetes service by Google Cloud Platform (GCP).
+* Strengths: Fully managed, integrates well with GCP services, offers advanced features like auto-scaling, security, and logging.
+* Use Cases: Workloads running in GCP, users wanting a fully managed Kubernetes experience with advanced features.
 
 9. AKS (Azure Kubernetes Service):
 
-+ Overview: AKS is a managed Kubernetes service by Microsoft Azure.
-+ Strengths: Fully managed, integrates well with Azure services, easy to use with other Azure tools.
-+ Use Cases: Workloads running in Azure, users wanting a fully managed service, Azure-centric environments.
+* Overview: AKS is a managed Kubernetes service by Microsoft Azure.
+* Strengths: Fully managed, integrates well with Azure services, easy to use with other Azure tools.
+* Use Cases: Workloads running in Azure, users wanting a fully managed service, Azure-centric environments.
 
 __**Each of these alternatives has its strengths and ideal use cases, so the best choice depends on the specific requirements of the project or organization, including scale, existing infrastructure, team expertise, and specific feature needs.**__
 
