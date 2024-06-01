@@ -268,11 +268,25 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
 
 * _**Installing kubectl**_
 
-'''shell
+    1. On macOS:
 
-sudo apt-get update
+       ```s 
+       brew install kubectl
+       ```
 
-'''
+    2. On Windows:
+       ```s
+       choco install kubernetes-cli
+       ```
+
+    3. On Linux:
+       ```s
+       sudo apt-get update
+       sudo apt-get install -y kubectl
+       ```
+
+
+
 
 
 
