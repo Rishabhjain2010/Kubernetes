@@ -1,6 +1,6 @@
 # Document on Kubernetes (K8s)
 
-<img src="https://www.btech.id/media/images/Page/2023/04/14/Kubernetes-logo-979801964_2">
+<img src="https://miro.medium.com/v2/resize:fit:1024/1*V8JWIC-tqYQkS1b1edsu3w.png">
 
 ## Please refer kubernetes.md for the Documentation.
 
