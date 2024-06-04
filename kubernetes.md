@@ -290,6 +290,7 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
     Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your local machine for users looking to try out Kubernetes or develop with it day-to-day.
     
     1. Install Minikube:
+    
         ◦ On macOS:
           ```s
           brew install minikube
