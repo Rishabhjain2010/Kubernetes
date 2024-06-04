@@ -362,17 +362,17 @@ _Scaling adjusts the number of replicas in your Deployment. For example:_
 
 * _**Update the Image of a Deployment**_
        
-       ```s
-       kubectl set image deployment/nginx nginx=nginx:1.16
-       #This command updates the nginx Deployment to use the nginx:1.16 image.
-       ```
+    ```s
+    kubectl set image deployment/nginx nginx=nginx:1.16
+    #This command updates the nginx Deployment to use the nginx:1.16 image.
+    ```
 
 * _**Check the Rollout Status**_
        
-       ```s
-       kubectl rollout status deployment/nginx
-       #This command checks the status of the update.
-       ```
+    ```s
+    kubectl rollout status deployment/nginx
+    #This command checks the status of the update.
+    ```
 
 * _**Rollback in Case of Issues**_
 
