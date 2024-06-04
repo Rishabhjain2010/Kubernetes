@@ -312,9 +312,9 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
        ```
 
     3. Verify the Cluster:
-      ```s
-      kubectl get nodes
-      ```
+       ```s
+       kubectl get nodes
+       ```
 
 ### Deploying Applications
 
@@ -342,7 +342,7 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
 
 * _**Scaling Applications**_
 
-Scaling adjusts the number of replicas in your Deployment. For example:
+_Scaling adjusts the number of replicas in your Deployment. For example:_
 
 * _**Scale Up/Down a Deployment**_
        
