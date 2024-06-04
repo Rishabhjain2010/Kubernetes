@@ -1,7 +1,7 @@
 #**Documentation on Kubernetes (K8s)**
 
 
-<img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/84px-Kubernetes_logo_without_workmark.svg.png">
+<img  src="https://miro.medium.com/v2/resize:fit:1024/1*V8JWIC-tqYQkS1b1edsu3w.png">
 
 
 
