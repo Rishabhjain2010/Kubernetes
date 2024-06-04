@@ -347,17 +347,17 @@ _Scaling adjusts the number of replicas in your Deployment. For example:_
 
 * _**Scale Up/Down a Deployment**_
        
- ```s
- kubectl scale deployment nginx --replicas=4
- #This command scales the nginx Deployment to 4 replicas.
- ```
+  ```s
+  kubectl scale deployment nginx --replicas=4
+  #This command scales the nginx Deployment to 4 replicas.
+  ```
 
 * _**Check the Status**_
        
- ```s
- kubectl get deployments
- #This command displays the current state of Deployments, including the number of desired and available replicas.
- ```
+  ```s
+  kubectl get deployments
+  #This command displays the current state of Deployments, including the number of desired and available replicas.
+  ```
 
 ### Updating Applications
 
