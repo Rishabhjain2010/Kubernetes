@@ -1,4 +1,4 @@
-#**Documentation on Kubernetes (K8s)**
+# **Documentation on Kubernetes (K8s)**
 
 
 <img  src="https://miro.medium.com/v2/resize:fit:1024/1*V8JWIC-tqYQkS1b1edsu3w.png">
@@ -70,7 +70,7 @@ Since, every individual application needed a seprate version of OS the resoruces
 <img src="https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg">
 
 
-_Kubernetes Architecture consists of many modular and highly scaleable components like **Control Plane*-and **Nodes**. Every part playing a very crucial role in managing , scheduling , running a containerized application._
+_Kubernetes Architecture consists of many modular and highly scaleable components like **Control Plane** and **Nodes**. Every part playing a very crucial role in managing , scheduling , running a containerized application._
 
 
 1. Control Plane Components:
@@ -505,37 +505,38 @@ Let's deploy an Nginx container using both methods.
 #### Declarative
 
     kubectl create -f deploy-example.yaml
+    
 
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+      env: prod
+  template:
     metadata:
-      name: nginx2
+      labels:
+        app: nginx
+        env: prod
     spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: nginx
-          env: prod
-      template:
-        metadata:
-          labels:
-            app: nginx
-            env: prod
-        spec:
-          containers:
-          - name: nginx
-            image: nginx
-            resources:
-              requests:
-                cpu: 100m
-                memory: 128Mi
-              limits:
-                cpu: 250m
-                memory: 256Mi        
-            ports:
-            - containerPort: 80
-    ```
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi        
+        ports:
+        - containerPort: 80
+```
 
 #### Cleanup
 
