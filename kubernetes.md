@@ -420,6 +420,20 @@ _Scaling adjusts the number of replicas in your Deployment. For example:_
       ```
 
 
+## Getting Started
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Conclusion
 
 _**Kubernetes is a powerful system for managing containerized applications in a clustered environment. This guide covers the basics of setting up and managing a Kubernetes cluster, deploying and managing applications, and scaling and updating them. To explore more advanced features, consider reading the official Kubernetes documentation.**_
