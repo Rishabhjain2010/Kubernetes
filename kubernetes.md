@@ -1,5 +1,8 @@
-#**Documentation on Kubernetes (K8)**
-=
+#**Documentation on Kubernetes (K8s)**
+
+
+<img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/84px-Kubernetes_logo_without_workmark.svg.png">
+
 
 
 ## _Table of Contents_
@@ -10,14 +13,14 @@
 2. Features of Kubernetes 
 3. Kubernetes Components
 4. Alternative of Kubernetes
-5. Instalation & Setup
-6. 
+5. Instalation & Setup & Getting Started
+
 
 
 ## **Introduction to Kubernetes**
-=
 
--Kubernetes also knows as K8s, K8s, is an open source system for automating deployement , scaling and management of containerized applications. 
+
+-Kubernetes also knows as K8s, is an open source continer orchestration system for automating deployement , scaling and management of containerized applications. 
 
 -It is a containerization , organization and management tool. 
  
@@ -422,16 +425,267 @@ _Scaling adjusts the number of replicas in your Deployment. For example:_
 
 ## Getting Started
 
+### Starting  Kubernetes Locallay
+
+Let’s test our local Kubernetes installation.
+
+    kubectl cluster-info
+
+### Running Kubectl
 
 
+#### Current context
 
+Get the current context:
 
+    kubectl config current-context
 
+#### List all contexts
 
+List all the contexts:
 
+    kubectl config get-contexts
 
+#### Change context
 
+Use a context:
 
+    kubectl config use-context [contextName]
+
+#### Using kubectx
+
+What's great about Kubernetes is the incredible amount of tools created by the community and available for free.  Kubectx is a simple tool that provides an easy way to list and change context.
+
+You can install it on:
+
+Windows (if you have Chocolatey installed):
+
+    choco install kubectx-ps
+
+macOS (if you have Brew installed):
+
+    brew install kubectx
+
+Ubuntu:
+
+    sudo apt install kubectx
+
+To list the contexts, simply type:
+
+    kubectx
+
+To change context:
+
+    kubectx <contextName>
+
+#### Rename context
+
+Rename context:
+
+    kubectl config rename-context [old-name] [new-name]
+
+#### Delete context
+
+Delete context:
+
+    kubectl config delete-context [contextName]
+
+### Cointainer Deployement
+
+_In K8s container can be deployed using two methods:_
+1. _Imperative_
+2. _Declarative_
+
+Let's deploy an Nginx container using both methods.
+
+#### Imperative
+
+    kubectl create deployment nginx1 --image=nginx
+
+#### Declarative
+
+    kubectl create -f deploy-example.yaml
+
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: nginx2
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: nginx
+          env: prod
+      template:
+        metadata:
+          labels:
+            app: nginx
+            env: prod
+        spec:
+          containers:
+          - name: nginx
+            image: nginx
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi        
+            ports:
+            - containerPort: 80
+    ```
+
+#### Cleanup
+
+    kubectl delete deployment nginx1
+    kubectl delete deploy nginx2
+
+### Namespaces
+
+#### Get namespaces
+
+Open a terminal and get the currently configured namespaces.
+
+    kubectl get namespaces
+    kubectl get ns
+
+#### Get the pods list
+
+Get a list of all the installed pods.
+
+    kubectl get pods
+
+You get the pods from the default namespace.  Try getting the pods from the docker namespace.  You will get a different list.
+
+    kubectl get pods --namespace=kube-system
+    kubectl get pods -n kube-system
+
+#### Change namespace
+
+Change the namespace to the docker one and get the pods list.
+
+    kubectl config set-context --current --namespace=kube-system
+
+#### Get the pods
+
+    kubectl get pods
+
+#### Now change back to the default namespace
+
+    kubectl config set-context --current --namespace=default
+    kubectl get pods
+
+#### Create and delete a namespace
+
+    kubectl create ns [name]
+    kubectl get ns
+    kubectl delete ns [name]
+
+### Nodes
+
+#### Getting Nodes Information
+
+Get a list of all the installed nodes. Using Docker Desktop, there should be only one.
+
+    kubectl get nodes
+
+Get some info about the node.
+
+    kubectl describe node
+
+### Pods
+
+Let’s first create a node running Nginx by using the imperative way.
+
+#### Create the pod
+
+    kubectl run mynginx --image=nginx
+
+#### Get a list of running pods
+
+    kubectl get pods
+
+#### Get more info
+
+    kubectl get pods -o wide
+    kubectl describe pod mynginx
+
+#### Delete the pod
+
+    kubectl delete pod mynginx
+
+#### Create a pod running BusyBox
+
+Let’s now create a node running BusyBox, this time attaching bash to our terminal.
+
+    kubectl run mybox --image=busybox -it -- /bin/sh
+
+#### List the folders and use command
+
+    ls
+    echo -n 'A Secret' | base64
+    exit
+
+#### Cleanup
+
+    kubectl delete pod mybox
+
+#### Create a pod using the declarative way
+
+Let’s now create a node using a YAML file.
+
+    kubectl create -f myapp.yaml
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi    
+    ports:
+    - containerPort: 80
+      name: http
+      protocol: TCP
+    env:
+    - name: DBCON
+      value: myconnectionstring
+```
+
+#### Get some info
+
+    kubectl get pods -o wide
+    kubectl describe pod myapp-pod
+
+#### Attach our terminal
+
+    kubectl exec -it myapp-pod -- bash
+
+Print the DBCON environment variable that was set in the YAML file.
+
+    echo $DBCON
+
+#### Detach from the instance
+
+    exit
+
+#### Cleanup
+
+    kubectl delete -f myapp.yaml
 
 
 ## Conclusion
