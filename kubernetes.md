@@ -320,23 +320,23 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
 
 * _**Create a Deployment**_
 
-       ```s
-       kubectl create deployment nginx --image=nginx
-       #This command creates a Deployment named nginx that uses the nginx Docker image.
-       ```
+  ```s
+  kubectl create deployment nginx --image=nginx
+  #This command creates a Deployment named nginx that uses the nginx Docker image.
+  ```
 
 * _**Expose the Deployment**_
-       ```s
-       kubectl expose deployment nginx --port=80 --type=NodePort
-       #This command creates a Service to expose the nginx Deployment on port 80.
-       ```
+  ```s
+  kubectl expose deployment nginx --port=80 --type=NodePort
+  #This command creates a Service to expose the nginx Deployment on port 80.
+  ```
 
 * _**Get the Service URL**_
 
-       ```s
-       minikube service nginx --url
-       #This command returns the URL to access the nginx service.
-       ```
+  ```s
+  minikube service nginx --url
+  #This command returns the URL to access the nginx service.
+  ```
 
 ### Managing the Cluster
 
