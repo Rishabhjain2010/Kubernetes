@@ -290,7 +290,7 @@ __**Each of these alternatives has its strengths and ideal use cases, so the bes
     Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a single-node Kubernetes cluster inside a VM on your local machine for users looking to try out Kubernetes or develop with it day-to-day.
     
     1. Install Minikube:
-    
+
         ◦ On macOS:
           ```s
           brew install minikube
@@ -347,40 +347,40 @@ _Scaling adjusts the number of replicas in your Deployment. For example:_
 
 * _**Scale Up/Down a Deployment**_
        
-       ```s
-       kubectl scale deployment nginx --replicas=4
-       #This command scales the nginx Deployment to 4 replicas.
-       ```
+ ```s
+ kubectl scale deployment nginx --replicas=4
+ #This command scales the nginx Deployment to 4 replicas.
+ ```
 
 * _**Check the Status**_
        
-       ```s
-       kubectl get deployments
-       #This command displays the current state of Deployments, including the number of desired and available replicas.
-       ```
+ ```s
+ kubectl get deployments
+ #This command displays the current state of Deployments, including the number of desired and available replicas.
+ ```
 
 ### Updating Applications
 
 * _**Update the Image of a Deployment**_
        
-    ```s
-    kubectl set image deployment/nginx nginx=nginx:1.16
-    #This command updates the nginx Deployment to use the nginx:1.16 image.
-    ```
+ ```s
+ kubectl set image deployment/nginx nginx=nginx:1.16
+ #This command updates the nginx Deployment to use the nginx:1.16 image.
+ ```
 
 * _**Check the Rollout Status**_
        
-    ```s
-    kubectl rollout status deployment/nginx
-    #This command checks the status of the update.
-    ```
+ ```s
+ kubectl rollout status deployment/nginx
+ #This command checks the status of the update.
+ ```
 
 * _**Rollback in Case of Issues**_
 
-       ```s
-       kubectl rollout undo deployment/nginx
-       #This command rolls back the nginx Deployment to the previous version.
-       ```
+ ```s
+ kubectl rollout undo deployment/nginx
+ #This command rolls back the nginx Deployment to the previous version.
+ ```
 
 ### Useful Commands
 
