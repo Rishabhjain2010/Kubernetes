@@ -14,6 +14,7 @@
 3. [Kubernetes Components & Architecture](#kubernetes-components-and-architecture)
 4. [Alternative of Kubernetes](#alternative-of-kubernetes)
 5. [Instalation & Setup & Getting Started](#getting-started--installation-and-setup)
+6. [Conclusion](#conclusion)
 
 
 
