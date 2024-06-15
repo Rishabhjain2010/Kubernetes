@@ -9,11 +9,11 @@
 
 
 
-1. Introduction to Kubernetes
-2. Features of Kubernetes 
-3. Kubernetes Components
-4. Alternative of Kubernetes
-5. Instalation & Setup & Getting Started
+1. [Introduction to Kubernetes](#introduction-to-kubernetes)
+2. [Features of Kubernetes ](#features-of-kubernetes)
+3. [Kubernetes Components & Architecture](#kubernetes-components-and-architecture)
+4. [Alternative of Kubernetes](#alternative-of-kubernetes)
+5. [Instalation & Setup & Getting Started](#getting-started--installation-and-setup)
 
 
 
