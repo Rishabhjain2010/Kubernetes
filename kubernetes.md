@@ -13,7 +13,7 @@
 2. [Features of Kubernetes ](#features-of-kubernetes)
 3. [Kubernetes Components & Architecture](#kubernetes-components-and-architecture)
 4. [Alternative of Kubernetes](#alternative-of-kubernetes)
-5. [Instalation & Setup & Getting Started](#getting-started--installation-and-setup)
+5. [Installation & Setup & Getting Started](#getting-started--installation-and-setup)
 6. [Conclusion](#conclusion)
 
 
@@ -21,7 +21,7 @@
 ## **Introduction to Kubernetes**
 
 
--Kubernetes also knows as K8s, is an open source continer orchestration system for automating deployement , scaling and management of containerized applications. 
+-Kubernetes also knows as K8s, is an open source continer orchestration system for automating deployment , scaling and management of containerized applications. 
 
 -It is a containerization , organization and management tool. 
  
@@ -34,7 +34,7 @@
 
 ### What is containerization and why do we need it?
 
-_A Container is as virtaul enviorment running on a OS, containing an application with other required resources and tools like its own file system , CPU , memory , process space and more. A container is decoupled from underlying infrastructer and hence it is portable across clounds and OS Distribution._
+_A Container is as virtual enviorment running on a OS, containing an application with other required resources and tools like its own file system , CPU , memory , process space and more. A container is decoupled from underlying infrastructer and hence it is portable across clounds and OS Distribution._
 
 
 In early time, when a application was hosted it was directly hosted to the server and in a situation when more then one application runs on server, there arrives a situaton where all the resources avaialable on server may be utilised by a single application itself leaving no resoruces for other to run. This was the situation in tradidtional deployment era. To solve the underlying problems “Virtualization” was introduced. Virtualization allowed us to run multiple Virtual Machines on a single physical server’s CPU. It allowed better resource management and isolation.
