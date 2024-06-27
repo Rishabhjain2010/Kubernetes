@@ -1,102 +1,66 @@
 # **Documentation on Kubernetes (K8s)**
 
-
-<img  src="https://miro.medium.com/v2/resize:fit:1024/1*V8JWIC-tqYQkS1b1edsu3w.png">
-
-
+![Kubernetes](https://miro.medium.com/v2/resize:fit:1024/1*V8JWIC-tqYQkS1b1edsu3w.png)
 
 ## _Table of Contents_
 
-
-
 1. [Introduction to Kubernetes](#introduction-to-kubernetes)
-2. [Features of Kubernetes ](#features-of-kubernetes)
+2. [Features of Kubernetes](#features-of-kubernetes)
 3. [Kubernetes Components & Architecture](#kubernetes-components-and-architecture)
-4. [Alternative of Kubernetes](#alternative-of-kubernetes)
-5. [Installation & Setup & Getting Started](#getting-started--installation-and-setup)
+4. [Alternatives to Kubernetes](#alternatives-to-kubernetes)
+5. [Installation & Setup](#installation--setup)
 6. [Conclusion](#conclusion)
-
-
 
 ## **Introduction to Kubernetes**
 
-
--Kubernetes also knows as K8s, is an open source continer orchestration system for automating deployment , scaling and management of containerized applications. 
-
--It is a containerization , organization and management tool. 
- 
--It is a open source version of Borg by google that was relaeased in 2014.
-
--Kubernetes is also known as k8s, as k -ubernate -s , the ubernete is a 8 letter long word hence it is a shorter way of calling long word.
-
--It is used to automate containerization scalling and management of containerez applications. \
-
+- Kubernetes, also known as K8s, is an open-source container orchestration system for automating deployment, scaling, and management of containerized applications.
+- It is a containerization, organization, and management tool.
+- It is an open-source version of Borg by Google that was released in 2014.
+- Kubernetes is also known as k8s, as k-ubernete-s, the "ubernete" is an 8-letter word, hence it is a shorter way of calling the long word.
+- It is used to automate containerization scaling and management of containerized applications.
 
 ### What is containerization and why do we need it?
 
-_A Container is as virtual enviorment running on a OS, containing an application with other required resources and tools like its own file system , CPU , memory , process space and more. A container is decoupled from underlying infrastructer and hence it is portable across clounds and OS Distribution._
+_A container is a virtual environment running on an OS, containing an application with other required resources and tools like its own file system, CPU, memory, process space, and more. A container is decoupled from the underlying infrastructure and hence it is portable across clouds and OS distributions._
 
+In earlier times, when an application was hosted it was directly hosted to the server. When more than one application ran on the server, there arose a situation where all the resources available on the server might be utilized by a single application, leaving no resources for others to run. This was the situation in the traditional deployment era. To solve these problems, “Virtualization” was introduced. Virtualization allowed us to run multiple virtual machines (VMs) on a single physical server’s CPU. It allowed better resource management and isolation.
 
-In early time, when a application was hosted it was directly hosted to the server and in a situation when more then one application runs on server, there arrives a situaton where all the resources avaialable on server may be utilised by a single application itself leaving no resoruces for other to run. This was the situation in tradidtional deployment era. To solve the underlying problems “Virtualization” was introduced. Virtualization allowed us to run multiple Virtual Machines on a single physical server’s CPU. It allowed better resource management and isolation.
-Since, every individual application needed a seprate version of OS the resoruces were being over utilized as well as wasted. Here comes in olay the containerization and containers. Containers are simillar to VMs , but they do not require indiviual OS and provide a relaxation on isolation theat were introduced by VMs,  therefore containers are considered lightweight and better to run on servers. 
+Since every individual application needed a separate version of the OS, the resources were being overutilized as well as wasted. Here comes the role of containerization and containers. Containers are similar to VMs, but they do not require individual OS and provide a relaxation on isolation introduced by VMs. Therefore, containers are considered lightweight and better to run on servers.
 
 ## **Features of Kubernetes**
 
+- **Service Discovery and Load Balancing**: Kubernetes can expose containers using DNS names or their IP addresses. It can distribute network traffic evenly to ensure deployment stability, even under high traffic conditions.
+- **Storage Orchestration**: Kubernetes allows automatic mounting of a storage system of your choice, such as local storage or public cloud providers.
+- **Automated Rollouts and Rollbacks**: Kubernetes lets you define the desired state of your deployed containers and adjusts the actual state accordingly at a controlled pace. It can automatically create new containers, remove existing ones, and migrate resources to new containers as needed.
+- **Automatic Bin Packing**: You provide Kubernetes with a cluster of nodes to run containerized tasks. By specifying the CPU and memory (RAM) requirements for each container, Kubernetes optimizes the placement of containers on your nodes to maximize resource utilization.
+- **Self-Healing**: Kubernetes automatically restarts failed containers, replaces them, kills unresponsive containers, and ensures they are not advertised to clients until they are ready to serve.
+- **Secret and Configuration Management**: Kubernetes enables secure storage and management of sensitive information like passwords, OAuth tokens, and SSH keys. It allows you to deploy and update secrets and application configurations without rebuilding container images or exposing secrets in stack configurations.
+- **Batch Execution**: Kubernetes can manage batch and CI workloads, ensuring failed containers are replaced as needed.
+- **Horizontal Scaling**: Easily scale your applications up or down via simple commands, a UI, or automatically based on CPU usage.
+- **IPv4/IPv6 Dual-Stack**: Supports the allocation of both IPv4 and IPv6 addresses to Pods and Services.
+- **Designed for Extensibility**: Kubernetes allows you to add new features to your cluster without altering the upstream source code.
 
--*Service Discovery and Load Balancing*: Kubernetes can expose containers using DNS names or their IP addresses. It can distribute network traffic evenly to ensure deployment stability, even under high traffic conditions.
+## **Kubernetes Components & Architecture**
 
--*Storage Orchestration*: Kubernetes allows automatic mounting of a storage system of your choice, such as local storage or public cloud providers.
+![Kubernetes Architecture](https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg)
 
--*Automated Rollouts and Rollbacks*: Kubernetes lets you define the desired state of your deployed containers and adjusts the actual state accordingly at a controlled pace. It can automatically create new containers, remove existing ones, and migrate resources to new containers as needed.
+Kubernetes architecture consists of modular and highly scalable components like **Control Plane** and **Nodes**. Each part plays a crucial role in managing, scheduling, and running a containerized application.
 
--*Automatic Bin Packing*: You provide Kubernetes with a cluster of nodes to run containerized tasks. By specifying the CPU and memory (RAM) requirements for each container, Kubernetes optimizes the placement of containers on your nodes to maximize resource utilization.
+### Control Plane Components
 
--*Self-Healing*: Kubernetes automatically restarts failed containers, replaces them, kills unresponsive containers, and ensures they are not advertised to clients until they are ready to serve.
+1. **API Server (kube-apiserver)**
+   - The API server is the front-end for the Kubernetes control plane. It exposes the Kubernetes API, which is used by external and internal components to interact with the cluster. The API server handles REST operations and provides the interface for all the other components.
 
--*Secret and Configuration Management*: Kubernetes enables secure storage and management of sensitive information like passwords, OAuth tokens, and SSH keys. It allows you to deploy and update secrets and application configurations without rebuilding container images or exposing secrets in stack configurations.
+2. **etcd**
+   - etcd is a consistent and highly-available key-value store used by Kubernetes for all cluster data storage. It stores configuration data, state data, and metadata. etcd serves as the source of truth for the cluster's state.
 
--*Batch Execution*: Kubernetes can manage batch and CI workloads, ensuring failed containers are replaced as needed.
+3. **Controller Manager (kube-controller-manager)**
+   - The controller manager runs various controllers that regulate the state of the cluster. This includes the node controller (notices and responds when nodes go down), the replication controller (maintains the desired number of pods), and others.
 
--*Horizontal Scaling*: Easily scale your applications up or down via simple commands, a UI, or automatically based on CPU usage.
+4. **Scheduler (kube-scheduler)**
+   - The scheduler assigns work to nodes by watching for newly created pods and selecting the best available node to run them. Decisions are based on resource requirements, policy constraints, and current workload.
 
--*IPv4/IPv6 Dual-Stack*: Supports the allocation of both IPv4 and IPv6 addresses to Pods and Services.
-
--*Designed for Extensibility*: Kubernetes allows you to add new features to your cluster without altering the upstream source code.
-
-
-## **Kubernetes Components and Architecture**
-
-
-
-<img src="https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg">
-
-
-_Kubernetes Architecture consists of many modular and highly scaleable components like **Control Plane** and **Nodes**. Every part playing a very crucial role in managing , scheduling , running a containerized application._
-
-
-1. Control Plane Components:
-
-  The control plane is responsible for managing the overall state of the cluster, maintaining the desired state of applications, and orchestrating tasks.
-
-   - API Server (kube-apiserver):
-
-     - The front-end of the Kubernetes control plane.
-     - Exposes the Kubernetes API, handling REST operations, and acting as the primary interface for users and cluster components.
-
-   - etcd:
-
-     - A distributed, consistent key-value store.
-     - Stores all cluster data, including configuration data, state information, and metadata.
-    
-   - Controller Manager (kube-controller-manager):
-
-     - Runs various controllers that regulate the state of the cluster.
-     - Includes node controller (notices and responds when nodes go down), replication controller (maintains the desired number of pods), and others.
-
-   - Scheduler (kube-scheduler):
-
-     - Assigns work to nodes by watching for newly created pods and selecting the best available node to run them.
-     - Decisions are based on resource requirements, policy constraints, and current workload.
+### Worker Node Components
 
 
 2. Worker Node Components:
